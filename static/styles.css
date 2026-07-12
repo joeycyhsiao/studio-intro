@@ -19,6 +19,10 @@ details.reveal summary::-webkit-details-marker { display: none; }
 details.reveal[open] .rvchev { transform: rotate(180deg); }
 #fab { opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s; }
 #fab.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+@keyframes gallery-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.gallery-track { animation: gallery-scroll var(--gallery-seconds, 40s) linear infinite; }
+.gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .gallery-track { animation: none; } }
 @media (max-width: 768px) { .brk { display: none; } }
 @media (max-width: 1024px) {
   .vnav { display: none; }
