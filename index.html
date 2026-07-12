@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;700;900&amp;family=LXGW+WenKai+TC:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;700;900&amp;display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #FFFFFF; color: #33324A; font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; -webkit-font-smoothing: antialiased; }
@@ -28,30 +28,50 @@
   @keyframes cue-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
   ::selection { background: #F9C04B; color: #33324A; }
   .vnav { position: fixed; left: clamp(10px, 1.6vw, 26px); top: 50%; transform: translateY(-50%); z-index: 60; display: flex; flex-direction: column; gap: 4px; }
-  .vnav a { display: flex; align-items: center; gap: 12px; padding: 6px 0; color: #625E92; text-decoration: none; }
+  .vnav a { display: flex; align-items: center; gap: 12px; padding: 10px 6px; margin: 1px 0; color: #625E92; text-decoration: none; }
   .vnav a:hover { text-decoration: none; }
-  .vnav .dot { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: #C5BFDD; transition: background .2s, transform .2s; }
+  .vnav .dot { flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #C5BFDD; transition: background .2s, transform .2s; }
   .vnav a:hover .dot { background: #5F5B8C; transform: scale(1.4); }
+  .vnav a.is-active .dot { background: #5F5B8C; transform: scale(1.4); }
+  .vnav a.is-active .label { opacity: 1; transform: translateX(0); }
   .vnav .label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; white-space: nowrap; }
   .vnav a:hover .label { opacity: 1; transform: translateX(0); }
-  @media (max-width: 1024px) { .vnav { display: none; } }
+  .mbar { display: none; }
+  details.reveal summary { list-style: none; cursor: pointer; }
+  details.reveal summary::-webkit-details-marker { display: none; }
+  details.reveal[open] .rvchev { transform: rotate(180deg); }
+  #fab { opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s; }
+  #fab.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  @media (max-width: 768px) { .brk { display: none; } }
+  @media (max-width: 1024px) {
+    .vnav { display: none; }
+    .mbar { position: sticky; top: 0; z-index: 70; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px clamp(16px, 5vw, 24px); background: rgba(255,255,255,0.94); backdrop-filter: saturate(1.3) blur(8px); -webkit-backdrop-filter: saturate(1.3) blur(8px); border-bottom: 1px solid #ECEAF3; }
+  }
 </style>
 </helmet>
 
 <nav class="vnav" aria-label="頁面導覽">
   <a href="#hero"><span class="dot"></span><span class="label">首頁</span></a>
-  <a href="#situation"><span class="dot"></span><span class="label">你的處境</span></a>
+  <a href="#situation"><span class="dot"></span><span class="label">您的痛點</span></a>
   <a href="#method"><span class="dot"></span><span class="label">我的方法</span></a>
   <a href="#services"><span class="dot"></span><span class="label">合作方式</span></a>
-  <a href="#work"><span class="dot"></span><span class="label">我做過的</span></a>
-  <a href="#voices"><span class="dot"></span><span class="label">推薦</span></a>
+  <a href="#work"><span class="dot"></span><span class="label">代表實績</span></a>
+  <a href="#voices"><span class="dot"></span><span class="label">客戶好評</span></a>
   <a href="#gallery"><span class="dot"></span><span class="label">現場側錄</span></a>
-  <a href="#about"><span class="dot"></span><span class="label">關於我</span></a>
-  <a href="#contact"><span class="dot"></span><span class="label">聯絡</span></a>
+  <a href="#about"><span class="dot"></span><span class="label">專業經歷</span></a>
+  <a href="#media"><span class="dot"></span><span class="label">媒體曝光</span></a>
+  <a href="#contact"><span class="dot"></span><span class="label">馬上聯絡</span></a>
 </nav>
 
+<header class="mbar">
+  <a href="#hero" aria-label="回到首頁" style="display: flex;"><img src="assets/logo-horizontal-purple.png" alt="引鹿創新 In-Clues UX" style="height: 34px; width: auto; display: block;"></a>
+  <a href="#contact" style="background: #F9C04B; color: #33324A; font-size: 14px; font-weight: 700; border-radius: 999px; padding: 9px 20px; text-decoration: none;">預約 30 分鐘諮詢</a>
+</header>
+
+<a id="fab" href="#contact" style="position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 65; background: #F9C04B; color: #33324A; font-size: 15px; font-weight: 700; border-radius: 999px; padding: 14px 26px; text-decoration: none; box-shadow: 0 8px 24px rgba(51,50,74,0.28);">預約 30 分鐘諮詢 →</a>
+
 <!-- ① HERO -->
-<section id="hero" data-screen-label="Hero" style="background: {{ heroBg }}; color: {{ heroFg }}; min-height: 92vh; display: flex; flex-direction: column; box-sizing: border-box; padding: clamp(24px, 4vw, 48px) clamp(24px, 6vw, 80px);">
+<section id="hero" data-screen-label="Hero" style="background: {{ heroBg }}; color: {{ heroFg }}; min-height: 82vh; display: flex; flex-direction: column; box-sizing: border-box; padding: clamp(24px, 4vw, 48px) clamp(24px, 6vw, 80px);">
   <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
     <sc-if value="{{ heroIsPurple }}" hint-placeholder-val="{{ false }}">
       <img src="assets/logo-horizontal-white.png" alt="引鹿創新 In-Clues UX" style="height: clamp(52px, 6vw, 72px); width: auto;">
@@ -60,12 +80,12 @@
       <img src="assets/logo-horizontal-purple.png" alt="引鹿創新體驗研究室 In-Clues UX Studio" style="height: clamp(56px, 6.5vw, 80px); width: auto;">
     </sc-if>
   </div>
-  <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: clamp(36px, 6vw, 88px); flex-wrap: wrap; width: 100%; max-width: 1140px; margin: 0 auto; padding: 48px 0; box-sizing: border-box;">
+  <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: clamp(36px, 6vw, 88px); flex-wrap: wrap; width: 100%; max-width: 1140px; margin: 0 auto; padding: 24px 0; box-sizing: border-box;">
     <div style="flex: 1 1 460px; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
-      <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(30px, 3.7vw, 42px); line-height: 1.4; letter-spacing: 0.02em; text-wrap: balance;">用專業的用戶研究和服務設計方法<br>陪伴團隊在 AI 時代做出深度創新</h1>
-      <p style="margin: 22px 0 0; max-width: 520px; font-size: clamp(16px, 1.7vw, 20px); line-height: 1.9; font-weight: 500; color: {{ heroFg }}; opacity: 0.82; text-wrap: pretty;">我是蕭喬尹博士 (Joey)<br>最能帶你實現商業價值與社會影響雙贏的產品創新顧問。</p>
+      <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(30px, 3.7vw, 42px); line-height: 1.4; letter-spacing: 0.02em; text-wrap: balance;">用專業的用戶研究和服務設計方法<br class="brk">陪伴團隊在 AI 時代做出深度創新</h1>
+      <p style="margin: 22px 0 0; max-width: 520px; font-size: clamp(16px, 1.7vw, 20px); line-height: 1.9; font-weight: 500; color: {{ heroFg }}; opacity: 0.92; text-wrap: pretty;">我是蕭喬尹博士 (Joey)<br class="brk">最能帶您實現商業價值與社會影響雙贏的產品創新顧問。</p>
       <span aria-hidden="true" style="display: block; width: 72px; height: 5px; border-radius: 3px; background: #F9C04B; margin: 32px 0 0;"></span>
-      <a href="#contact" style="margin-top: 36px; background: #F9C04B; color: #33324A; font-size: 17px; font-weight: 700; border-radius: 999px; padding: 16px 40px; text-decoration: none; box-shadow: 0 6px 20px rgba(249,192,75,0.35);" style-hover="background: #FFD671; text-decoration: none;">聊聊你的專案 →</a>
+      <a href="#contact" style="margin-top: 36px; background: #F9C04B; color: #33324A; font-size: 17px; font-weight: 700; border-radius: 999px; padding: 16px 40px; text-decoration: none; box-shadow: 0 6px 20px rgba(249,192,75,0.35);" style-hover="background: #FFD671; text-decoration: none;">預約 30 分鐘諮詢 →</a>
     </div>
     <div style="flex: 0 1 380px; min-width: 240px; max-width: 420px;">
       <img src="assets/portrait.jpg" alt="蕭喬尹 Joey" style="width: 100%; border-radius: 24px; display: block; box-shadow: 0 20px 48px rgba(51,50,74,0.18);">
@@ -79,198 +99,225 @@
   </sc-if>
 </section>
 
-<!-- ② 你面對的處境 -->
-<section id="situation" data-screen-label="你面對的處境" style="background: #FFFFFF; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
+<!-- ② 您面對的處境 -->
+<section id="situation" data-screen-label="您面對的處境" style="background: #FFFFFF; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
   <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">你的團隊是否總是無法有效創新？</p>
-    <h2 style="margin: 0 0 32px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 3.4vw, 33px); line-height: 1.5; color: #33324A; text-wrap: balance; text-decoration-line: none">辦了好幾場工作坊、開了無數次會議、花了很多預算<br>還是不知道使用者到底要什麼？</h2>
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">您的團隊是否總是有這樣的創新痛點？</p>
+    <h2 style="margin: 0 0 24px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 3.4vw, 33px); line-height: 1.5; color: #33324A; text-wrap: balance; text-decoration-line: none">辦了好幾場工作坊、開了無數次會議、花了很多預算<br>還是不知道使用者到底要什麼？</h2>
     <p style="margin: 0 0 20px; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">團隊的想法很豐富，卻總是建立在猜測上，收斂出來的方案屢屢失敗。</p>
-    <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">活動辦得很熱鬧，但根本問題從來沒解決：你其實不夠了解你的使用者。</p>
+    <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">活動辦得很熱鬧，但根本問題從來沒解決：您其實不夠了解您的使用者。</p>
   </div>
 </section>
 
-<!-- ③ 我怎麼做 -->
-<section id="method" data-screen-label="我怎麼做" style="background: #F6F6F9; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我怎麼確保創新真的有效？</p>
-    <h2 style="margin: 0 auto 56px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center; text-wrap: balance;">先看懂真實的人，再做有依據的創新</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
-      <div style="background: #FFFFFF; border-radius: 16px; padding: 36px 32px;">
-        <p style="margin: 0 0 14px; font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 17px; letter-spacing: 0.1em; color: #D98E00;">步驟一</p>
-        <h3 style="margin: 0 0 14px; font-size: 20px; line-height: 1.6; font-weight: 700; color: #33324A; text-wrap: balance;">深入理解用戶</h3>
-        <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #55536E; text-wrap: pretty;">多數產品的失敗，是團隊憑對使用者的想像在做。我用研究讓你看到真實的人怎麼想，甚至為什麼不信任你的產品，當然也包括那些容易被忽略的使用者。</p>
+<!-- ③ 我怎麼做（CLUES 創新方法） -->
+<section id="method" data-screen-label="我怎麼做" style="background: #F6F6F9; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1180px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我們使用的專業 CLUES 方法</p>
+    <h2 style="margin: 0 auto 20px; max-width: 780px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center; text-wrap: balance;">先看懂真實的人，再做有本的創新</h2>
+    
+    <p style="margin: 0 auto 36px; max-width: 720px; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(15px, 1.5vw, 17px); letter-spacing: 0.04em; color: #7B77A8; text-wrap: balance;">創新精神就藏在方法裡：<span style="color: rgb(217, 142, 0);">C·L·U·E·S</span></p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px;">
+      <div style="background: #FFFFFF; border-radius: 16px; padding: clamp(26px, 2.4vw, 34px) clamp(22px, 2vw, 28px); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(46px, 5vw, 62px); line-height: 0.9; color: #D98E00;">C</span>
+          <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; color: #7B77A8;">CLARIFY</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 19px; line-height: 1.5; font-weight: 700; color: #33324A;">釐清脈絡</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">先釐清問題發生的真實情境與限制，而不是憑團隊的想像下判斷。</p>
       </div>
-      <div style="background: #FFFFFF; border-radius: 16px; padding: 36px 32px;">
-        <p style="margin: 0 0 14px; font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 17px; letter-spacing: 0.1em; color: #D98E00;">步驟二</p>
-        <h3 style="margin: 0 0 14px; font-size: 20px; line-height: 1.6; font-weight: 700; color: #33324A; text-wrap: balance;">精準設計方案</h3>
-        <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #55536E; text-wrap: pretty;">研究常常做完就躺在報告裡。我擅長的是把發現直接轉成設計和共創的依據，讓團隊每一個決定都知道為什麼這樣做，不再回到憑感覺。</p>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: clamp(26px, 2.4vw, 34px) clamp(22px, 2vw, 28px); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(46px, 5vw, 62px); line-height: 0.9; color: #D98E00;">L</span>
+          <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; color: #7B77A8;">LISTEN</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 19px; line-height: 1.5; font-weight: 700; color: #33324A;">傾聽需求</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">用研究貼近使用者真實的想法與行為，包含最容易被忽略的族群。</p>
       </div>
-      <div style="background: #FFFFFF; border-radius: 16px; padding: 36px 32px;">
-        <p style="margin: 0 0 14px; font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 17px; letter-spacing: 0.1em; color: #D98E00;">步驟三</p>
-        <h3 style="margin: 0 0 14px; font-size: 20px; line-height: 1.6; font-weight: 700; color: #33324A; text-wrap: balance;">高效驗證成果</h3>
-        <p style="margin: 0; font-size: 16px; line-height: 1.85; color: #55536E; text-wrap: pretty;">你能拿出對內說得清楚的邏輯，證明這個創新為什麼會有效、對誰有效，讓主管和團隊都買單。</p>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: clamp(26px, 2.4vw, 34px) clamp(22px, 2vw, 28px); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(46px, 5vw, 62px); line-height: 0.9; color: #D98E00;">U</span>
+          <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; color: #7B77A8;">UNCOVER</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 19px; line-height: 1.5; font-weight: 700; color: #33324A;">挖掘洞察</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">把零散的觀察，收斂成能支撐決策的關鍵洞察。</p>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: clamp(26px, 2.4vw, 34px) clamp(22px, 2vw, 28px); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(46px, 5vw, 62px); line-height: 0.9; color: #D98E00;">E</span>
+          <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; color: #7B77A8;">ESTABLISH</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 19px; line-height: 1.5; font-weight: 700; color: #33324A;">建立方案</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">把洞察轉成有依據的設計與共創方案，不再靠感覺發散。</p>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: clamp(26px, 2.4vw, 34px) clamp(22px, 2vw, 28px); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(46px, 5vw, 62px); line-height: 0.9; color: #D98E00;">S</span>
+          <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; color: #7B77A8;">SHIP</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 19px; line-height: 1.5; font-weight: 700; color: #33324A;">交付落地</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">驗證方案對誰有效、為什麼有效，真正交付能落地的成果、讓團隊與主管買單。</p>
       </div>
     </div>
-    <p style="max-width: 760px; margin: 48px auto 0; text-align: center; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">讓我們先深入理解服務對象，再共創對商業與社會都有價值的服務和產品。<br>我擅長把最容易被忽略的使用者納進來，讓創新更完整。</p>
   </div>
 </section>
 
 <!-- ⑦ 合作方式 -->
-<section id="services" data-screen-label="合作方式" style="background: #EDEBF4; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
+<section id="services" data-screen-label="合作方式" style="background: #EDEBF4; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
   <div style="max-width: 1120px; margin: 0 auto;">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我們可以怎麼開始？</p>
-    <h2 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.4; color: #33324A;">合作方式</h2>
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我們可以怎麼合作？</p>
+    <h2 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.4; color: #33324A;">引鹿創新提供六大合作方式</h2>
 
     <!-- A 組：專案型 -->
-    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 56px 0 26px;">
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 40px 0 20px;">
       <span style="flex: 0 0 auto; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 7px 18px;">A ｜ 專案型</span>
-      <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); color: #33324A;">我承接團隊需求完成專案</h3>
+      <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); color: #33324A;">由我承接客戶需求完成專案</h3>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px;">
-      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(28px, 3vw, 38px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 18px;">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
         <div style="display: flex; align-items: baseline; gap: 12px;">
           <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">01</span>
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">RESEARCH</span>
         </div>
-        <h3 style="margin: 12px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">深入研究</h3>
-        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">在動手設計之前，先真正理解你的使用者是誰、在意什麼、在什麼情況下會改變決定。</p>
-        <p style="margin: 22px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">你會得到</p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一份能直接支撐決策的使用者洞察，不是躺在報告裡的資料</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>清楚知道該為誰而做、哪些需求是真的、哪些只是團隊的假設</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>把最容易被忽略的使用者也納入，避免設計盲點</span></li>
-        </ul>
-        <div style="margin-top: auto; padding-top: 22px;">
-          <div style="border-top: 1px solid #EEECF6; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　要導入 AI 或推新服務、但不確定使用者需求的團隊</p>
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　研究專案・8–12 週以上，依範圍規劃</p>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">深入研究</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">在動手設計之前，先真正理解您的使用者是誰、在意什麼、在什麼情況下會改變決定。</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一份能直接支撐決策的使用者洞察，不是躺在報告裡的資料</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>清楚知道該為誰而做、哪些需求是真的、哪些只是團隊的假設</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>把最容易被忽略的使用者也納入，避免設計盲點</span></li>
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　要導入 AI 或推新服務、但不確定使用者需求的團隊</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　研究專案・8–12 週以上，依範圍規劃</p>
           </div>
         </div>
       </div>
-      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(28px, 3vw, 38px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
         <div style="display: flex; align-items: baseline; gap: 12px;">
           <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">02</span>
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">DESIGN</span>
         </div>
-        <h3 style="margin: 12px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">服務設計</h3>
-        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">把研究洞察轉成你要賣的產品或服務，讓每個設計決定都建立在對使用者的真實理解上。</p>
-        <p style="margin: 22px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">你會得到</p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一套建立在真實使用者理解上的產品或服務設計方案</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>團隊每個決定都知道為什麼這樣做，不再憑感覺發散</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>可與深入研究併行，讓研究到設計一氣呵成</span></li>
-        </ul>
-        <div style="margin-top: auto; padding-top: 22px;">
-          <div style="border-top: 1px solid #EEECF6; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　已有方向、要把它變成可上市方案的團隊</p>
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　設計專案・8–12 週以上，依範圍規劃</p>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">服務設計</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">把研究洞察轉成您要賣的產品或服務，讓每個設計決定都建立在對使用者的真實理解上。</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一套建立在真實使用者理解上的產品或服務設計方案</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>團隊每個決定都知道為什麼這樣做，不再憑感覺發散</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>可與深入研究併行，讓研究到設計一氣呵成</span></li>
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　已有方向、要把它變成可上市方案的團隊</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　設計專案・8–12 週以上，依範圍規劃</p>
           </div>
         </div>
       </div>
-      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(28px, 3vw, 38px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
         <div style="display: flex; align-items: baseline; gap: 12px;">
           <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">03</span>
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">TRANSFORMATION</span>
         </div>
-        <h3 style="margin: 12px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">智慧轉型</h3>
-        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">幫你把 AI 導入團隊的日常工作，用 UX 的視角設計出真正好用、團隊願意用的 AI 工作流。</p>
-        <p style="margin: 22px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">你會得到</p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一套貼合團隊實際工作的 AI 工作流設計，不是買了工具卻沒人用</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>從使用者（你的員工）出發，讓 AI 導入真的提升效率而非增加負擔</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>團隊具備持續優化工作流的方法與共同語言</span></li>
-        </ul>
-        <div style="margin-top: auto; padding-top: 22px;">
-          <div style="border-top: 1px solid #EEECF6; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　想導入 AI、優化內部工作流程的組織</p>
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　轉型專案・依範圍規劃</p>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">智慧轉型</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">幫您把 AI 導入團隊的日常工作，用 UX 的視角設計出真正好用、團隊願意用的 AI 工作流。</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一套貼合團隊實際工作的 AI 工作流設計，不是買了工具卻沒人用</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>從使用者（您的員工）出發，讓 AI 導入真的提升效率而非增加負擔</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>團隊具備持續優化工作流的方法與共同語言</span></li>
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　想導入 AI、優化內部工作流程的組織</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　轉型專案・依範圍規劃</p>
           </div>
         </div>
       </div>
-      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(28px, 3vw, 38px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
         <div style="display: flex; align-items: baseline; gap: 12px;">
           <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">04</span>
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">VALIDATION</span>
         </div>
-        <h3 style="margin: 12px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">解方驗證</h3>
-        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">在正式投入資源之前，用易用性測試（usability test）等方法，先驗證你的方案對使用者是不是真的好用、真的有效。</p>
-        <p style="margin: 22px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">你會得到</p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>用使用者的真實反應，檢驗方案的可行性與有效性</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>在犯大錯之前，先發現方向要不要調整</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>透過易用性測試（usability test）實際觀察操作，找出介面卡點與理解落差</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一份能對內說明「為什麼這個方案值得推」的依據</span></li>
-        </ul>
-        <div style="margin-top: auto; padding-top: 22px;">
-          <div style="border-top: 1px solid #EEECF6; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　方案已成形、想在推出前先確認方向的團隊</p>
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　驗證專案・4–8 週以上，依範圍規劃</p>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">解方驗證</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">在正式投入資源之前，用易用性測試（usability test）等方法，先驗證您的方案對使用者是不是真的好用、真的有效。</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>用使用者的真實反應，檢驗方案的可行性與有效性</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>在犯大錯之前，先發現方向要不要調整</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>透過易用性測試（usability test）實際觀察操作，找出介面卡點與理解落差</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一份能對內說明「為什麼這個方案值得推」的依據</span></li>
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　方案已成形、想在推出前先確認方向的團隊</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　驗證專案・4–8 週以上，依範圍規劃</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- B 組：賦能型 -->
-    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 60px 0 26px;">
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 44px 0 20px;">
       <span style="flex: 0 0 auto; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 7px 18px;">B ｜ 賦能型</span>
-      <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); color: #33324A;">我陪伴團隊發展創新實力</h3>
+      <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); color: #33324A;">由我帶領客戶培養創新實力</h3>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px;">
-      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(28px, 3vw, 38px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 18px;">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
         <div style="display: flex; align-items: baseline; gap: 12px;">
           <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">05</span>
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">ENABLEMENT</span>
         </div>
-        <h3 style="margin: 12px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">組織培力</h3>
-        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">用工作坊與課程，讓研究與設計的方法留在你的團隊裡，而不是每次都得外找。</p>
-        <p style="margin: 22px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">你會得到</p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>團隊帶走一套可以繼續使用的方法，涵蓋 AI×UX、創新思考等主題</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>成員學會自主帶工作坊、自主拆解問題</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>可搭配課後陪跑，確保方法真的內化成日常</span></li>
-        </ul>
-        <div style="margin-top: auto; padding-top: 22px;">
-          <div style="border-top: 1px solid #EEECF6; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　想建立創新文化、培養內部方法能力的組織</p>
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　工作坊 / 課程・8–16 小時，可加課後陪跑時數</p>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">組織培力</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">用工作坊與課程，讓研究與設計的方法留在您的團隊裡，而不是每次都得外找。</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>團隊帶走一套可以繼續使用的方法，涵蓋 AI×UX、創新思考等主題</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>成員學會自主帶工作坊、自主拆解問題</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>可搭配課後陪跑，確保方法真的內化成日常</span></li>
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　想建立創新文化、培養內部方法能力的組織</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　工作坊 / 課程・8–16 小時，可加課後陪跑時數</p>
           </div>
         </div>
       </div>
-      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(28px, 3vw, 38px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
         <div style="display: flex; align-items: baseline; gap: 12px;">
           <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">06</span>
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">PARTNERSHIP</span>
         </div>
-        <h3 style="margin: 12px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">陪跑顧問</h3>
-        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">以長期夥伴的身分參與你的專案，從研究到落地持續提供方法支援。</p>
-        <p style="margin: 22px 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">你會得到</p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一個熟悉你脈絡、隨時能討論的研究與設計夥伴</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>專案每個階段都有方法把關，不必自己一路摸索</span></li>
-          <li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>依專案節奏彈性投入，長期把創新做穩</span></li>
-        </ul>
-        <div style="margin-top: auto; padding-top: 22px;">
-          <div style="border-top: 1px solid #EEECF6; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　有持續創新專案、需要長期方法夥伴的團隊</p>
-            <p style="margin: 0; font-size: 13.5px; line-height: 1.65; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　以時數為單位，依專案長度規劃</p>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">陪跑顧問</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">以長期夥伴的身分參與您的專案，從研究到落地持續提供方法支援。</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>一個熟悉您脈絡、隨時能討論的研究與設計夥伴</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>專案每個階段都有方法把關，不必自己一路摸索</span></li>
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>依專案節奏彈性投入，長期把創新做穩</span></li>
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　有持續創新專案、需要長期方法夥伴的團隊</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　以時數為單位，依專案長度規劃</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div style="display: flex; justify-content: center; margin-top: 56px;">
-      <a href="#contact" style="background: #5F5B8C; color: #FFFFFF; font-size: 17px; font-weight: 700; border-radius: 999px; padding: 16px 40px; text-decoration: none;" style-hover="background: #33324A; text-decoration: none;">來信詢問 →</a>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 40px; text-align: center;">
+      <p style="margin: 0; font-size: clamp(16px, 1.6vw, 18px); line-height: 1.85; color: #55536E; text-wrap: pretty;">不確定哪一個適合您的團隊？<br>歡迎直接聯絡，我們簡單聊聊分析您的問題。</p>
+      <a href="#contact" style="background: #5F5B8C; color: #FFFFFF; font-size: 17px; font-weight: 700; border-radius: 999px; padding: 16px 40px; text-decoration: none;" style-hover="background: #33324A; text-decoration: none;">預約 30 分鐘諮詢 →</a>
     </div>
   </div>
 </section>
 
 <!-- ④ 我做過的 -->
-<section id="work" data-screen-label="我做過的" style="background: #FFFFFF; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
+<section id="work" data-screen-label="我做過的" style="background: #FFFFFF; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
   <div style="max-width: 1100px; margin: 0 auto;">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">為什麼我能為客戶帶來真實改變？</p>
-    <h2 style="margin: 0 auto 64px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center; text-wrap: balance;">我擅長用精準的研究與共創方法<br>為客戶帶來有影響力的服務與產品創新</h2>
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我曾為客戶帶來什麼樣的真實改變？</p>
+    <h2 style="margin: 0 auto 44px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center; text-wrap: balance;">我擅長用精準的研究與共創方法<br>為多元化客戶落實有影響力的創新實績</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; text-align: center; margin-bottom: 72px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; text-align: center; margin-bottom: 48px;">
       <div style="display: flex; flex-direction: column; gap: 10px;">
         <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(52px, 6vw, 76px); line-height: 1; color: #D98E00;">10+ 年</span>
         <span style="font-size: 17px; font-weight: 500; color: #55536E;">UX 研究經驗</span>
@@ -290,7 +337,7 @@
         <p style="margin: 0 0 14px; font-size: 14px; letter-spacing: 0.16em; font-weight: 700; color: #F9C04B;">近期代表專案</p>
         <h3 style="margin: 0 0 20px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(24px, 2.8vw, 34px); color: #FFFFFF;">Z 世代公益參與研究</h3>
         <p style="margin: 0 0 16px; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #F2F1F8; text-wrap: pretty;">透過深度質性研究，引鹿創新這份公開報告深入理解整個 Z 世代在公益參與議題上真正在意什麼，以及什麼會讓他們卻步。</p>
-        <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #F2F1F8; text-wrap: pretty;">同樣的研究方法，可以用來理解你的使用者。從最主流的客群到最容易被忽略的客群，我們都能為你精準分析。</p>
+        <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #F2F1F8; text-wrap: pretty;">同樣的研究方法，可以用來理解您的使用者。從最主流的客群到最容易被忽略的客群，我們都能為您精準分析。</p>
         <a href="https://in-clues-ux.com/download/2025-gen-z-public-good-report/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 28px; background: #FFFFFF; color: #5F5B8C; font-size: 15px; font-weight: 700; border-radius: 999px; padding: 12px 26px; text-decoration: none;" style-hover="background: #F9C04B; color: #33324A; text-decoration: none;">下載公開研究報告 →</a>
       </div>
       <div style="flex: 0 1 280px; min-width: 240px; align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 10px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: clamp(28px, 3vw, 44px);">
@@ -308,39 +355,39 @@
 </section>
 
 <!-- ⑥ 推薦 -->
-<section id="voices" data-screen-label="合作過的人怎麼說" style="background: #FFFFFF; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
+<section id="voices" data-screen-label="合作過的人怎麼說" style="background: #EDEBF4; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
   <div style="max-width: 1240px; margin: 0 auto;">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">跟我合作的人怎麼說？</p>
-    <h2 style="margin: 0 auto 56px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center;">客戶夥伴推薦語</h2>
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">跟我合作過的客戶怎麼推薦我？</p>
+    <h2 style="margin: 0 auto 40px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center;">客戶夥伴全面好評</h2>
     <div ref="{{ tRef }}" style="display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px calc((100% - min(520px, 62%)) / 2) 20px; scrollbar-width: none;" onScroll="{{ onTScroll }}">
-      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
         <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到你們對社會共好的服務設計的投入。</blockquote>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到您們對社會共好的服務設計的投入。</blockquote>
         <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜跨國企業 - 產品設計師<br>（Z世代服務設計工作坊參與者）</figcaption>
       </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
         <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br data-om-id="ebfa7d98:176">（悠識學院 Agentic AI 課程參與者）</figcaption>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br>（悠識學院 Agentic AI 課程參與者）</figcaption>
       </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
         <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">你把我們在初訪探索階段遇到的問題，講成了一套系統性的架構。</blockquote>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">您把我們在初訪探索階段遇到的問題，講成了一套系統性的架構。</blockquote>
         <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜大型企業 - 專案 / 產品經理<br>（Webconf 2025 演講聽眾）</figcaption>
       </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
         <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">團隊要在有限人力下做出有信度、效度的研究很苦惱。你們用不同角度分類 persona，給了我們新的啟發！</blockquote>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">團隊要在有限人力下做出有信度、效度的研究很苦惱。您們用不同角度分類 persona，給了我們新的啟發！</blockquote>
         <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜大型社創組織 - 專案專員<br>（Z世代服務設計工作坊參與者）</figcaption>
       </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
         <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到你們對社會共好的服務設計的投入。</blockquote>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到您們對社會共好的服務設計的投入。</blockquote>
         <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜跨國企業 - 產品設計師<br>（Z世代服務設計工作坊參與者）</figcaption>
       </figure>
-      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
         <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
         <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br>（悠識學院 Agentic AI 課程參與者）</figcaption>
       </figure>
     </div>
@@ -357,79 +404,66 @@
 </section>
 
 <!-- ⑨ 現場側錄（工作坊與講座照片牆） -->
-<section id="gallery" data-screen-label="現場側錄" style="background: #FFFFFF; padding: clamp(72px, 10vw, 130px) 0;">
+<section id="gallery" data-screen-label="現場側錄" style="background: #FFFFFF; padding: clamp(46px, 6vw, 82px) 0;">
   <div style="max-width: 1100px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 80px);">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">工作坊與講座現場</p>
-    <h2 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A;">現場側錄</h2>
-    <p style="margin: 14px auto 0; max-width: 640px; text-align: center; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.8; color: #55536E; text-wrap: pretty;">過去在企業、學校與社群的工作坊與講座現場。</p>
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我在多樣現場的工作側錄</p>
+    <h2 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A;">過去在企業、機構、與社群的<br>工作坊與講座現場</h2>
+    <p style="margin: 14px auto 0; max-width: 640px; text-align: center; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.8; color: #55536E; text-wrap: pretty;"><br></p>
   </div>
-
-  <!-- 照片牆：水平滑動輪播。內容與版面分離，日後增減照片＝新增／刪除一個 <figure> 即可。
-       換成真實照片時，把 <figure> 裡的「佔位 <div>」整塊換成：
-         <img src="assets/你的照片檔名.jpg" alt="場合或主題" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-       caption 為選用：<figcaption> 有填就顯示、留空或整行刪掉也能正常顯示（見最後一張示範）。 -->
-  <div style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: clamp(24px, 6vw, 80px); padding: clamp(32px, 4vw, 48px) clamp(24px, 6vw, 80px); scrollbar-width: none; -webkit-overflow-scrolling: touch;">
-
+  <!-- 換成真實照片：把每個 <figure> 裡的佔位 <div> 整塊換成 <img src="assets/檔名.jpg" alt="場合或主題" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">；figcaption 可留可刪。新增一張＝複製一個 <figure>。 -->
+  <div style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: clamp(24px, 6vw, 80px); padding: clamp(28px, 3.5vw, 40px) clamp(24px, 6vw, 80px); scrollbar-width: none; -webkit-overflow-scrolling: touch;">
     <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
       <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
       </div>
       <figcaption style="font-size: 14px; line-height: 1.6; color: #A29BC6; text-wrap: pretty;">（可補場合／主題）</figcaption>
     </figure>
-
     <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
       <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
       </div>
       <figcaption style="font-size: 14px; line-height: 1.6; color: #A29BC6; text-wrap: pretty;">（可補場合／主題）</figcaption>
     </figure>
-
     <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
       <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
       </div>
       <figcaption style="font-size: 14px; line-height: 1.6; color: #A29BC6; text-wrap: pretty;">（可補場合／主題）</figcaption>
     </figure>
-
     <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
       <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
       </div>
       <figcaption style="font-size: 14px; line-height: 1.6; color: #A29BC6; text-wrap: pretty;">（可補場合／主題）</figcaption>
     </figure>
-
     <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
       <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
       </div>
       <figcaption style="font-size: 14px; line-height: 1.6; color: #A29BC6; text-wrap: pretty;">（可補場合／主題）</figcaption>
     </figure>
-
-    <!-- 這張示範：沒有 figcaption 也能正常顯示 -->
     <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
       <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
         <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
       </div>
     </figure>
-
   </div>
-
-  <p style="margin: clamp(20px, 3vw, 28px) 0 0; text-align: center; font-size: 13px; letter-spacing: 0.14em; color: #A29BC6;">← 左右滑動瀏覽更多 →</p>
+  <p style="margin: clamp(16px, 2.5vw, 24px) 0 0; text-align: center; font-size: 13px; letter-spacing: 0.14em; color: #A29BC6;">← 左右滑動瀏覽更多 →</p>
 </section>
 
 <!-- ⑤ 關於蕭喬尹 -->
-<section id="about" data-screen-label="關於蕭喬尹" style="background: #F6F6F9; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
+<section id="about" data-screen-label="關於蕭喬尹" style="background: #F6F6F9; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
   <div style="max-width: 1100px; margin: 0 auto;">
-    <div style="max-width: 820px; margin: 0 auto 64px;">
-      <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">為什麼我能帶你做出真正創新？</p>
+    <div style="max-width: 820px; margin: 0 auto 44px;">
+      <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">我有什麼樣的專業經歷背景？</p>
       <h2 style="margin: 0 0 28px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center;">UX引路人 蕭喬尹博士</h2>
-      <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 2; color: #1A1650; text-wrap: pretty">你好，我是 UX 引路人 Joey。在過去，我有十年的時間在美國，於密西根大學攻讀資訊科學博士，並且在 Yahoo USA 擔任 UX 研究員。幾年前回到台灣後，我創立了引鹿創新體驗研究室，<b style="background-color: rgb(249, 192, 75);">專注把 UX 研究方法應用在 AI 時代的服務與產品創新</b>。<br>我擅長面對廣泛的研究對象與題材，包括低收入戶、新住民、長者這些平常在設計裡最容易被忽略的使用者。理解不同族群真正的需求，是我最核心的能力。而利用 AI 工具融入產品與開發流程，是我最能為客戶實現的價值。</p>
+      <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 2; color: #1A1650; text-wrap: pretty">您好，我是 UX 引路人 Joey。在過去，我有十年的時間在美國，於密西根大學攻讀資訊科學博士，並且在 Yahoo USA 擔任 UX 研究員。幾年前回到台灣後，我創立了引鹿創新體驗研究室，<b style="background-color: rgb(249, 192, 75);">專注把 UX 研究方法應用在 AI 時代的服務與產品創新</b>。<br>我擅長面對廣泛的研究對象與題材，包括低收入戶、新住民、長者這些平常在設計裡最容易被忽略的使用者。理解不同族群真正的需求，是我最核心的能力。而利用 AI 工具融入產品與開發流程，是我最能為客戶實現的價值。</p>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
       <div style="background: #FFFFFF; border-radius: 16px; padding: 36px 32px;">
@@ -500,44 +534,54 @@
       </div>
     </div>
 
-    <div style="margin-top: 72px;">
-      <h3 style="margin: 0 0 8px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); color: #33324A;">媒體曝光</h3>
-      <p style="margin: 0 0 36px; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">除了專案工作，我也透過深度書寫與媒體受訪，持續分享 UX 與 AI 時代創新的實務觀點。</p>
-      <h4 style="margin: 0 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">深度文章</h4>
-      <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 20px;"></span>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-      <a href="https://joeyintheloop.substack.com/p/ai-social-impact" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
+  </div>
+</section>
+
+<!-- ⑤-b 媒體曝光 -->
+<section id="media" data-screen-label="媒體曝光" style="background: #EDEBF4; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">專業服務之外還可以在哪裡找到我？</p>
+    <h2 style="margin: 0 auto 16px; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A;">媒體曝光</h2>
+    <p style="margin: 0 auto 36px; max-width: 640px; text-align: center; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">除了專案工作，我也透過深度書寫與媒體受訪，<br>持續分享 UX 與 AI 時代創新的實務觀點。</p>
+    <h4 style="margin: 0 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">個人專欄文章</h4>
+    <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 20px;"></span>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      <a href="https://joeyintheloop.substack.com/p/ai-social-impact" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
         <span style="align-self: flex-start; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; background-color: #F9C04B">專欄系列・連載中</span>
         <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">《代理人 AI 與社會影響力》</span>
         <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">前往閱讀 →</span>
       </a>
-      <a href="https://joeyintheloop.substack.com/p/genz" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
+      <a href="https://joeyintheloop.substack.com/p/genz" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
         <span style="align-self: flex-start; background: #F9C04B; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px;">專欄系列・連載中</span>
         <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">《重構 Z 世代的公益參與體驗設計》</span>
         <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">前往閱讀 →</span>
       </a>
+    </div>
+    <h4 style="margin: 48px 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">公開受訪紀錄</h4>
+    <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 12px;"></span>
+    <!-- 新增一則＝複製一列 <div>。有連結時把 <div> 換成 <a href="..." target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">，並把「待補」改成「前往收聽 →」。 -->
+    <div style="border-top: 1px solid #D8D3EC;">
+      <div style="display: flex; align-items: center; gap: 16px; padding: 18px 4px; border-bottom: 1px solid #D8D3EC;">
+        <span style="flex: 0 0 auto; min-width: 88px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 6px 12px;">Podcast</span>
+        <span style="flex: 1; min-width: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: #8E88B3;">（節目名稱／集數・待補）</span>
+        <span aria-hidden="true" style="flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #8E88B3;">待補</span>
       </div>
-      <!-- 公開受訪：受訪內容由蕭喬尹之後補上；新增一則＝複製一個 card；有連結時把 <div> 換成 <a href="..." target="_blank" rel="noopener">。 -->
-      <h4 style="margin: 44px 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">公開受訪</h4>
-      <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 20px;"></span>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-        <div style="border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;">
-          <span style="align-self: flex-start; color: #625E92; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; border: 1px solid #D8D3EC;">媒體受訪</span>
-          <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #A29BC6;">（受訪媒體／主題・待補）</span>
-          <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #A29BC6;">連結・待補</span>
-        </div>
-        <div style="border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;">
-          <span style="align-self: flex-start; color: #625E92; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; border: 1px solid #D8D3EC;">媒體受訪</span>
-          <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #A29BC6;">（受訪媒體／主題・待補）</span>
-          <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #A29BC6;">連結・待補</span>
-        </div>
+      <div style="display: flex; align-items: center; gap: 16px; padding: 18px 4px; border-bottom: 1px solid #D8D3EC;">
+        <span style="flex: 0 0 auto; min-width: 88px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 6px 12px;">媒體受訪</span>
+        <span style="flex: 1; min-width: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: #8E88B3;">（媒體／主題・待補）</span>
+        <span aria-hidden="true" style="flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #8E88B3;">待補</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; padding: 18px 4px; border-bottom: 1px solid #D8D3EC;">
+        <span style="flex: 0 0 auto; min-width: 88px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 6px 12px;">媒體受訪</span>
+        <span style="flex: 1; min-width: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: #8E88B3;">（媒體／主題・待補）</span>
+        <span aria-hidden="true" style="flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #8E88B3;">待補</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ⑧ 聯絡 -->
-<section id="contact" data-screen-label="聯絡" style="background: #5F5B8C; color: #FFFFFF; padding: clamp(80px, 11vw, 140px) clamp(24px, 6vw, 80px) clamp(48px, 6vw, 72px);">
+<section id="contact" data-screen-label="聯絡" style="background: #5F5B8C; color: #FFFFFF; padding: clamp(52px, 7vw, 88px) clamp(24px, 6vw, 80px) clamp(36px, 4vw, 52px);">
   <div style="max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 28px;">
     <h2 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(28px, 3.8vw, 44px); line-height: 1.5; text-wrap: balance;">等不及要一起做出有價值的創新了嗎？</h2>
     <p style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(19px, 2vw, 24px); line-height: 1.8; color: #FFFFFF; text-wrap: balance;">讓我們一起從理解人開始，<br>打造兼具價值與溫度的數位未來。</p>
@@ -596,7 +640,39 @@ class Component extends DCLogic {
     el.style.paddingLeft = pad + "px";
     el.style.paddingRight = pad + "px";
   }
+  _spySetup() {
+    const links = Array.from(document.querySelectorAll(".vnav a"));
+    const byId = {};
+    links.forEach((a) => { byId[(a.getAttribute("href") || "").slice(1)] = a; });
+    this._spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          links.forEach((l) => l.classList.remove("is-active"));
+          const a = byId[e.target.id];
+          if (a) a.classList.add("is-active");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    document.querySelectorAll("section[id]").forEach((s) => this._spy.observe(s));
+  }
+  _fabSetup() {
+    const fab = document.getElementById("fab");
+    if (!fab) return;
+    const onScroll = () => {
+      const contact = document.getElementById("contact");
+      const past = window.scrollY > window.innerHeight * 0.8;
+      let near = false;
+      if (contact) near = contact.getBoundingClientRect().top < window.innerHeight * 0.9;
+      if (past && !near) fab.classList.add("show"); else fab.classList.remove("show");
+    };
+    this._onFabScroll = onScroll;
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
   componentDidMount() {
+    document.documentElement.lang = "zh-Hant";
+    this._spySetup();
+    this._fabSetup();
     const init = () => {
       const el = this.tRef.current;
       if (!el) return;
@@ -614,6 +690,8 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this._onTResize);
+    if (this._spy) this._spy.disconnect();
+    if (this._onFabScroll) window.removeEventListener("scroll", this._onFabScroll);
   }
   scrollT(dir) {
     const el = this.tRef.current;
