@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ site.meta.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.meta.title }}</title>
+<meta name="description" content="{{ site.meta.description }}">
+<meta property="og:title" content="{{ site.meta.og_title }}">
+<meta property="og:description" content="{{ site.meta.og_description }}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;700;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="vnav" aria-label="頁面導覽">
+  {% for n in site.nav %}
+  <a href="#{{ n.id }}"><span class="dot"></span><span class="label">{{ n.label }}</span></a>
+  {% endfor %}
+</nav>
+
+<header class="mbar">
+  <a href="#hero" aria-label="回到首頁" style="display: flex;"><img src="{{ site.brand.logo.horizontal_purple }}" alt="引鹿創新 In-Clues UX" style="height: 34px; width: auto; display: block;"></a>
+  <a href="#contact" style="background: #F9C04B; color: #33324A; font-size: 14px; font-weight: 700; border-radius: 999px; padding: 9px 20px; text-decoration: none;">{{ site.cta.primary }}</a>
+</header>
+
+<a id="fab" href="#contact" style="position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); z-index: 65; background: #F9C04B; color: #33324A; font-size: 15px; font-weight: 700; border-radius: 999px; padding: 14px 26px; text-decoration: none; box-shadow: 0 8px 24px rgba(51,50,74,0.28);">{{ site.cta.primary }} →</a>
+
+{% for sid in site.layout %}
+{% include "sections/" ~ sid ~ ".html" %}
+{% endfor %}
+
+<script src="main.js" defer></script>
+</body>
+</html>

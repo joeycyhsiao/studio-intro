@@ -1,0 +1,37 @@
+<!-- ④ 我做過的 -->
+<section id="work" style="background: #FFFFFF; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.work.eyebrow }}</p>
+    <h2 style="margin: 0 auto 44px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center; text-wrap: balance;">{{ s.work.title_lines | join('<br>') | safe }}</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; text-align: center; margin-bottom: 48px;">
+      {% for st in s.work.stats %}
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(52px, 6vw, 76px); line-height: 1; color: #D98E00;">{{ st.value }}</span>
+        <span style="font-size: 17px; font-weight: 500; color: #55536E;">{{ st.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="background: #5F5B8C; color: #FFFFFF; border-radius: 24px; padding: clamp(40px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: clamp(32px, 4vw, 56px); align-items: center;">
+      <div style="flex: 1 1 480px; min-width: 280px;">
+        <p style="margin: 0 0 14px; font-size: 14px; letter-spacing: 0.16em; font-weight: 700; color: #F9C04B;">{{ s.work.featured.eyebrow }}</p>
+        <h3 style="margin: 0 0 20px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(24px, 2.8vw, 34px); color: #FFFFFF;">{{ s.work.featured.title }}</h3>
+        {% for p in s.work.featured.body %}
+        <p style="margin: {{ '0' if loop.last else '0 0 16px' }}; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #F2F1F8; text-wrap: pretty;">{{ p }}</p>
+        {% endfor %}
+        <a href="{{ s.work.featured.cta.href }}" target="_blank" rel="noopener" style="display: inline-block; margin-top: 28px; background: #FFFFFF; color: #5F5B8C; font-size: 15px; font-weight: 700; border-radius: 999px; padding: 12px 26px; text-decoration: none;">{{ s.work.featured.cta.label }}</a>
+      </div>
+      <div style="flex: 0 1 280px; min-width: 240px; align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 10px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: clamp(28px, 3vw, 44px);">
+        <span style="font-size: 15px; line-height: 1.8; font-weight: 700; color: #F2F1F8; text-wrap: pretty;">{{ s.work.featured.side.caption_lines | join('<br>') | safe }}</span>
+        <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(40px, 4vw, 56px); line-height: 1; color: #F9C04B; margin: 6px 0;">{{ s.work.featured.side.stat }}</span>
+        <span style="font-size: 15px; line-height: 1.8; color: #F2F1F8; text-wrap: pretty;">{{ s.work.featured.side.stat_label }}</span>
+      </div>
+      <div style="flex: 1 1 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 8px;">
+        {% for img in s.work.featured.images %}
+        <img src="{{ img.src }}" loading="lazy" alt="{{ img.alt }}" style="width: 100%; border-radius: 12px; display: block;">
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<!-- ⑧ 聯絡 -->
+<section id="contact" style="background: #5F5B8C; color: #FFFFFF; padding: clamp(52px, 7vw, 88px) clamp(24px, 6vw, 80px) clamp(36px, 4vw, 52px);">
+  <div style="max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 28px;">
+    <h2 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(28px, 3.8vw, 44px); line-height: 1.5; text-wrap: balance;">{{ s.contact.title }}</h2>
+    <p style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(19px, 2vw, 24px); line-height: 1.8; color: #FFFFFF; text-wrap: balance;">{{ s.contact.tagline_lines | join('<br>') | safe }}</p>
+    <a href="mailto:{{ s.contact.email }}" style="display: inline-block; background: #F9C04B; color: #33324A; font-size: clamp(17px, 1.6vw, 20px); font-weight: 700; border-radius: 999px; padding: 18px 40px; text-decoration: none;">{{ s.contact.email }}</a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; font-size: 15px;">
+      {% for l in s.contact.links %}
+      <a href="{{ l.href }}" target="_blank" rel="noopener" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 4px;">{{ l.label }}</a>
+      {% endfor %}
+    </div>
+    <div style="margin-top: 48px; width: 100%; border-top: 1px solid rgba(255,255,255,0.25); padding-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+      <img src="{{ site.brand.logo.horizontal_white }}" alt="引鹿創新 In-Clues UX" style="height: 40px; width: auto;">
+      <p style="margin: 0; font-size: 14px; color: #F2F1F8;">{{ site.meta.copyright }}</p>
+    </div>
+  </div>
+</section>

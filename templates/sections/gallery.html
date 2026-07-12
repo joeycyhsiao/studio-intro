@@ -1,0 +1,35 @@
+<!-- ⑨ 現場側錄（工作坊與講座照片牆） -->
+<section id="gallery" style="background: #FFFFFF; padding: clamp(46px, 6vw, 82px) 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 80px);">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.gallery.eyebrow }}</p>
+    <h2 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A;">{{ s.gallery.title_lines | join('<br>') | safe }}</h2>
+    <p style="margin: 14px auto 0; max-width: 640px; text-align: center; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.8; color: #55536E; text-wrap: pretty;"><br></p>
+  </div>
+  <div style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: clamp(24px, 6vw, 80px); padding: clamp(28px, 3.5vw, 40px) clamp(24px, 6vw, 80px); scrollbar-width: none; -webkit-overflow-scrolling: touch;">
+    {% if col.gallery %}
+    {% for g in col.gallery %}
+    <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
+      <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC);">
+        <img src="assets/gallery/{{ g.file }}" alt="{{ g.caption }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      {% if g.caption %}
+      <figcaption style="font-size: 14px; line-height: 1.6; color: #625E92; text-wrap: pretty;">{{ g.caption }}</figcaption>
+      {% endif %}
+    </figure>
+    {% endfor %}
+    {% else %}
+    {% for i in range(s.gallery.placeholder_count) %}
+    <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 12px;">
+      <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A29BC6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <span style="font-size: 13px; color: #A29BC6; letter-spacing: 0.05em;">現場照片</span>
+      </div>
+      {% if not loop.last %}
+      <figcaption style="font-size: 14px; line-height: 1.6; color: #A29BC6; text-wrap: pretty;">（可補場合／主題）</figcaption>
+      {% endif %}
+    </figure>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <p style="margin: clamp(16px, 2.5vw, 24px) 0 0; text-align: center; font-size: 13px; letter-spacing: 0.14em; color: #A29BC6;">{{ s.gallery.hint }}</p>
+</section>

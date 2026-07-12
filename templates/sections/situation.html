@@ -1,0 +1,10 @@
+<!-- ② 您面對的處境 -->
+<section id="situation" style="background: #FFFFFF; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.situation.eyebrow }}</p>
+    <h2 style="margin: 0 0 24px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 3.4vw, 33px); line-height: 1.5; color: #33324A; text-wrap: balance; text-decoration-line: none">{{ s.situation.title_lines | join('<br>') | safe }}</h2>
+    {% for p in s.situation.body %}
+    <p style="margin: {{ '0' if loop.last else '0 0 20px' }}; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">{{ p }}</p>
+    {% endfor %}
+  </div>
+</section>

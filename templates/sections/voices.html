@@ -1,0 +1,21 @@
+<!-- ⑥ 推薦 -->
+<section id="voices" style="background: #EDEBF4; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1240px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.voices.eyebrow }}</p>
+    <h2 style="margin: 0 auto 40px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center;">{{ s.voices.title }}</h2>
+    <div data-voices-track style="display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px calc((100% - min(520px, 62%)) / 2) 20px; scrollbar-width: none;">
+      {% for t in col.testimonials %}
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #FFFFFF; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">{{ t.body }}</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— {{ t.attribution }}<br>{{ t.context }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
+      <button type="button" data-voices-prev aria-label="上一則推薦" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #B8C2C8; background: #FFFFFF; color: #5F5B8C; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">←</button>
+      <div data-voices-dots style="display: flex; align-items: center; gap: 10px;"></div>
+      <button type="button" data-voices-next aria-label="下一則推薦" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #B8C2C8; background: #FFFFFF; color: #5F5B8C; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">→</button>
+    </div>
+  </div>
+</section>

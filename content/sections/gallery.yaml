@@ -1,0 +1,7 @@
+eyebrow: 我在多樣現場的工作側錄
+title_lines:
+  - 過去在企業、機構、與社群的
+  - 工作坊與講座現場
+hint: ← 左右滑動瀏覽更多 →
+# 當 collections/gallery/ 沒有任何照片時，顯示幾張佔位卡（最後一張不含說明，示範無說明也正常）
+placeholder_count: 6

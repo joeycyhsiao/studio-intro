@@ -1,0 +1,20 @@
+<!-- ③ 我怎麼做（CLUES 創新方法） -->
+<section id="method" style="background: #F6F6F9; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1180px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.method.eyebrow }}</p>
+    <h2 style="margin: 0 auto 20px; max-width: 780px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center; text-wrap: balance;">{{ s.method.title }}</h2>
+    <p style="margin: 0 auto 36px; max-width: 720px; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(15px, 1.5vw, 17px); letter-spacing: 0.04em; color: #7B77A8; text-wrap: balance;">{{ s.method.lead_html | safe }}</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px;">
+      {% for st in s.method.steps %}
+      <div style="background: #FFFFFF; border-radius: 16px; padding: clamp(26px, 2.4vw, 34px) clamp(22px, 2vw, 28px); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(46px, 5vw, 62px); line-height: 0.9; color: #D98E00;">{{ st.letter }}</span>
+          <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; color: #7B77A8;">{{ st.en }}</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 19px; line-height: 1.5; font-weight: 700; color: #33324A;">{{ st.name }}</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.85; color: #55536E; text-wrap: pretty;">{{ st.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

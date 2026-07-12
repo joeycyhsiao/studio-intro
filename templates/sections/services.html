@@ -1,0 +1,41 @@
+<!-- ⑦ 合作方式 -->
+<section id="services" style="background: #EDEBF4; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.services.eyebrow }}</p>
+    <h2 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.4; color: #33324A;">{{ s.services.title }}</h2>
+    {% for g in s.services.groups %}
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: {{ '40px 0 20px' if loop.first else '44px 0 20px' }};">
+      <span style="flex: 0 0 auto; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 7px 18px;">{{ g.tag }}</span>
+      <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); color: #33324A;">{{ g.heading }}</h3>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 18px;">
+      {% for c in g.cards %}
+      <div style="background: #FFFFFF; border-radius: 20px; padding: clamp(20px, 2vw, 26px); display: flex; flex-direction: column; box-shadow: 0 2px 16px rgba(51,50,74,0.05);">
+        <div style="display: flex; align-items: baseline; gap: 12px;">
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 22px; color: #D98E00;">{{ c.number }}</span>
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #7B77A8;">{{ c.en }}</span>
+        </div>
+        <h3 style="margin: 8px 0 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(21px, 2vw, 25px); color: #33324A;">{{ c.name }}</h3>
+        <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #55536E; text-wrap: pretty;">{{ c.positioning }}</p>
+        <div style="margin: 16px 0 0; background: #F7F6FB; border-radius: 14px; padding: 12px 16px;"><p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; color: #625E92;">您會得到</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          {% for gain in c.gains %}
+          <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: #55536E;"><span style="flex: 0 0 auto; color: #D98E00; font-weight: 900;">✓</span><span>{{ gain }}</span></li>
+          {% endfor %}
+        </ul></div>
+        <div style="margin-top: auto; padding-top: 14px;">
+          <div style="border-top: 1px solid #EEECF6; padding-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">適合對象</span>　{{ c.audience }}</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #55536E; text-wrap: pretty;"><span style="font-weight: 700; color: #625E92;">形式與時程</span>　{{ c.format }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 40px; text-align: center;">
+      <p style="margin: 0; font-size: clamp(16px, 1.6vw, 18px); line-height: 1.85; color: #55536E; text-wrap: pretty;">{{ s.services.footer_lines | join('<br>') | safe }}</p>
+      <a href="{{ s.services.cta_href }}" style="background: #5F5B8C; color: #FFFFFF; font-size: 17px; font-weight: 700; border-radius: 999px; padding: 16px 40px; text-decoration: none;">{{ s.services.cta_label }}</a>
+    </div>
+  </div>
+</section>

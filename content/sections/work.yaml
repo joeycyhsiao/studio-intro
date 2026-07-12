@@ -1,0 +1,23 @@
+eyebrow: 我曾為客戶帶來什麼樣的真實改變？
+title_lines:
+  - 我擅長用精準的研究與共創方法
+  - 為多元化客戶落實有影響力的創新實績
+stats:
+  - {value: "10+ 年", label: UX 研究經驗}
+  - {value: "50+ 場", label: "過去三年：工作坊與講座"}
+  - {value: "1000+ 位", label: 學員與導生累計}
+featured:
+  eyebrow: 近期代表專案
+  title: Z 世代公益參與研究
+  body:
+    - 透過深度質性研究，引鹿創新這份公開報告深入理解整個 Z 世代在公益參與議題上真正在意什麼，以及什麼會讓他們卻步。
+    - 同樣的研究方法，可以用來理解您的使用者。從最主流的客群到最容易被忽略的客群，我們都能為您精準分析。
+  cta: {label: 下載公開研究報告 →, href: "https://in-clues-ux.com/download/2025-gen-z-public-good-report/"}
+  side:
+    caption_lines: ["《用體驗設計點燃Z世代公益參與火花》", 工作坊]
+    stat: 40+ 位
+    stat_label: 社創與公益工作者累計參與者
+  images:
+    - {src: assets/genz-persona.jpg,    alt: "Z 世代社會公益體驗設計：5+1 種 Persona 人物誌快卡"}
+    - {src: assets/genz-traits.jpg,     alt: "Z 世代社會公益參與者三大共同特質"}
+    - {src: assets/genz-journeymap.jpg, alt: "Z 世代社會公益體驗設計：Journey Map 旅程地圖模板"}

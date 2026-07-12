@@ -1,0 +1,49 @@
+meta:
+  title: 引鹿創新體驗研究室 — 蕭喬尹
+  description: 引鹿創新體驗研究室｜蕭喬尹博士。用精準的 UX 研究和服務設計方法，陪伴團隊在 AI 時代做出深度創新。
+  og_title: 引鹿創新體驗研究室 — 蕭喬尹
+  og_description: 用精準的 UX 研究和服務設計方法，陪伴團隊在 AI 時代做出深度創新。
+  lang: zh-Hant
+  copyright: Copyright © 2026 引鹿創新體驗研究室
+
+hero_theme: light          # light | purple
+
+brand:
+  colors:
+    purple: "#5F5B8C"
+    purple_light: "#7B77A8"
+    ink: "#33324A"
+    gold: "#F9C04B"
+    gold_dark: "#D98E00"
+    bg_light: "#F6F6F9"
+    lavender: "#EDEBF4"
+    muted: "#55536E"
+    label: "#625E92"
+  logo:
+    horizontal_purple: assets/logo-horizontal-purple.png
+    horizontal_white: assets/logo-horizontal-white.png
+  thumbnail_word: 引鹿
+
+cta:
+  primary: 預約 30 分鐘諮詢
+  contact_email: contact@in-clues-ux.com
+
+social:
+  linkedin: https://www.linkedin.com/in/joeycyhsiao/
+  substack: https://joeyintheloop.substack.com/
+
+# 左側垂直導覽（id 對應 section 的 anchor）
+nav:
+  - {id: hero,      label: 首頁}
+  - {id: situation, label: 您的痛點}
+  - {id: method,    label: 我的方法}
+  - {id: services,  label: 合作方式}
+  - {id: work,      label: 代表實績}
+  - {id: voices,    label: 客戶好評}
+  - {id: gallery,   label: 現場側錄}
+  - {id: about,     label: 專業經歷}
+  - {id: media,     label: 媒體曝光}
+  - {id: contact,   label: 馬上聯絡}
+
+# section 顯示順序（改這裡即可重排）
+layout: [hero, situation, method, services, work, voices, gallery, about, media, contact]

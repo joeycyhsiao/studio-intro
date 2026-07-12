@@ -1,0 +1,28 @@
+<!-- ① HERO -->
+<section id="hero" style="background: {{ hero.bg }}; color: {{ hero.fg }}; min-height: 82vh; display: flex; flex-direction: column; box-sizing: border-box; padding: clamp(24px, 4vw, 48px) clamp(24px, 6vw, 80px);">
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    {% if hero.is_purple %}
+    <img src="{{ site.brand.logo.horizontal_white }}" alt="引鹿創新 In-Clues UX" style="height: clamp(52px, 6vw, 72px); width: auto;">
+    {% endif %}
+    {% if hero.is_light %}
+    <img src="{{ site.brand.logo.horizontal_purple }}" alt="引鹿創新體驗研究室 In-Clues UX Studio" style="height: clamp(56px, 6.5vw, 80px); width: auto;">
+    {% endif %}
+  </div>
+  <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: clamp(36px, 6vw, 88px); flex-wrap: wrap; width: 100%; max-width: 1140px; margin: 0 auto; padding: 24px 0; box-sizing: border-box;">
+    <div style="flex: 1 1 460px; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+      <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: clamp(30px, 3.7vw, 42px); line-height: 1.4; letter-spacing: 0.02em; text-wrap: balance;">{{ s.hero.title_lines | join('<br class="brk">') | safe }}</h1>
+      <p style="margin: 22px 0 0; max-width: 520px; font-size: clamp(16px, 1.7vw, 20px); line-height: 1.9; font-weight: 500; color: {{ hero.fg }}; opacity: 0.92; text-wrap: pretty;">{{ s.hero.subtitle_lines | join('<br class="brk">') | safe }}</p>
+      <span aria-hidden="true" style="display: block; width: 72px; height: 5px; border-radius: 3px; background: #F9C04B; margin: 32px 0 0;"></span>
+      <a href="{{ s.hero.cta_href }}" style="margin-top: 36px; background: #F9C04B; color: #33324A; font-size: 17px; font-weight: 700; border-radius: 999px; padding: 16px 40px; text-decoration: none; box-shadow: 0 6px 20px rgba(249,192,75,0.35);">{{ s.hero.cta_label }}</a>
+    </div>
+    <div style="flex: 0 1 380px; min-width: 240px; max-width: 420px;">
+      <img src="{{ s.hero.portrait }}" alt="蕭喬尹 Joey" style="width: 100%; border-radius: 24px; display: block; box-shadow: 0 20px 48px rgba(51,50,74,0.18);">
+    </div>
+  </div>
+  {% if s.hero.scroll_cue %}
+  <a href="#situation" aria-label="往下捲動" style="align-self: center; display: flex; flex-direction: column; align-items: center; gap: 8px; color: {{ hero.fg }}; font-size: 13px; letter-spacing: 0.18em;">
+    <span>SCROLL</span>
+    <span style="display: block; width: 1px; height: 36px; background: {{ hero.border }}; animation: cue-bounce 2s ease-in-out infinite;"></span>
+  </a>
+  {% endif %}
+</section>

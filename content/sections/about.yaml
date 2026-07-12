@@ -1,0 +1,22 @@
+eyebrow: 我有什麼樣的專業經歷背景？
+title: UX引路人 蕭喬尹博士
+bio_html: '您好，我是 UX 引路人 Joey。在過去，我有十年的時間在美國，於密西根大學攻讀資訊科學博士，並且在 Yahoo USA 擔任 UX 研究員。幾年前回到台灣後，我創立了引鹿創新體驗研究室，<b style="background-color: rgb(249, 192, 75);">專注把 UX 研究方法應用在 AI 時代的服務與產品創新</b>。<br>我擅長面對廣泛的研究對象與題材，包括低收入戶、新住民、長者這些平常在設計裡最容易被忽略的使用者。理解不同族群真正的需求，是我最核心的能力。而利用 AI 工具融入產品與開發流程，是我最能為客戶實現的價值。'
+credentials:
+  - heading: 經歷
+    items:
+      - {title: 引鹿創新體驗研究室, sub: 創辦人 / 體驗設計總監}
+      - {title: 台大 d.school 學生專案, sub: 外部評審}
+      - {title: 三星 Solve for Tomorrow 創新競賽, sub: 小組導師}
+      - {title: UserXper 悠識學院, sub: 客座講師}
+      - {title: Yahoo USA, sub: 用戶研究員}
+  - heading: 學歷
+    items:
+      - {title: 美國密西根大學, sub: 資訊科學博士}
+      - {title: 台灣大學, sub: 資訊工程學士 / 碩士}
+      - {title: 28S 社會創新人才培訓計劃, sub: 第四屆學員}
+  - heading: 近期公開課程與講座
+    items:
+      - {title: "《研究員獨自升級：用 AI Agent 重構自己的 UX 知識系統》", sub: 悠識學院 - 特邀講師}
+      - {title: "《設計一門永續好生意》工作坊", sub: 清大服務科學所 - 特邀共同講師}
+      - {title: "《用共融設計打破 AI 隱形牆》", sub_html: "新竹縣 115 年數位創新青年培育就業計劃 -<br>特邀講師"}
+      - {title: "《掌握田野中的人 – 用 FAITH 框架管理陌生場域專案的人際信任》", sub: Webconf 2025 - 特邀講者}

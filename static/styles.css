@@ -1,0 +1,26 @@
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #FFFFFF; color: #33324A; font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #625E92; text-decoration: none; }
+a:hover { color: #33324A; }
+@keyframes cue-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+::selection { background: #F9C04B; color: #33324A; }
+.vnav { position: fixed; left: clamp(10px, 1.6vw, 26px); top: 50%; transform: translateY(-50%); z-index: 60; display: flex; flex-direction: column; gap: 4px; }
+.vnav a { display: flex; align-items: center; gap: 12px; padding: 10px 6px; margin: 1px 0; color: #625E92; text-decoration: none; }
+.vnav a:hover { text-decoration: none; }
+.vnav .dot { flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #C5BFDD; transition: background .2s, transform .2s; }
+.vnav a:hover .dot { background: #5F5B8C; transform: scale(1.4); }
+.vnav a.is-active .dot { background: #5F5B8C; transform: scale(1.4); }
+.vnav a.is-active .label { opacity: 1; transform: translateX(0); }
+.vnav .label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; white-space: nowrap; }
+.vnav a:hover .label { opacity: 1; transform: translateX(0); }
+.mbar { display: none; }
+details.reveal summary { list-style: none; cursor: pointer; }
+details.reveal summary::-webkit-details-marker { display: none; }
+details.reveal[open] .rvchev { transform: rotate(180deg); }
+#fab { opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s; }
+#fab.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+@media (max-width: 768px) { .brk { display: none; } }
+@media (max-width: 1024px) {
+  .vnav { display: none; }
+  .mbar { position: sticky; top: 0; z-index: 70; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px clamp(16px, 5vw, 24px); background: rgba(255,255,255,0.94); backdrop-filter: saturate(1.3) blur(8px); -webkit-backdrop-filter: saturate(1.3) blur(8px); border-bottom: 1px solid #ECEAF3; }
+}

@@ -1,0 +1,5 @@
+# 現場側錄照片說明：把照片檔（.jpg/.png/.webp）直接丟進這個資料夾即可自動出現。
+# 想加說明就在下面對應「檔名: 說明」，沒有說明也能正常顯示。
+# 範例：
+#   workshop-01.jpg: 悠識學院・Agentic AI 課程
+#   webconf-2025.jpg: Webconf 2025・FAITH 框架演講

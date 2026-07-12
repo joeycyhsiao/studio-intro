@@ -1,0 +1,44 @@
+<!-- ⑤-b 媒體曝光 -->
+<section id="media" style="background: #EDEBF4; padding: clamp(46px, 6vw, 82px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">{{ s.media.eyebrow }}</p>
+    <h2 style="margin: 0 auto 16px; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A;">{{ s.media.title }}</h2>
+    <p style="margin: 0 auto 36px; max-width: 640px; text-align: center; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">{{ s.media.lead_lines | join('<br>') | safe }}</p>
+
+    <h4 style="margin: 0 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">{{ s.media.articles_heading }}</h4>
+    <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 20px;"></span>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      {% for a in col.articles %}
+      <a href="{{ a.link }}" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;">
+        <span style="align-self: flex-start; background: #F9C04B; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px;">{{ a.tag }}</span>
+        <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">{{ a.title }}</span>
+        <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">{{ a.cta | default('前往閱讀 →') }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <h4 style="margin: 48px 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">{{ s.media.interviews_heading }}</h4>
+    <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 12px;"></span>
+    <div style="border-top: 1px solid #D8D3EC;">
+      {% if col.interviews %}
+      {% for iv in col.interviews %}
+      {% if iv.link %}<a href="{{ iv.link }}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">{% endif %}
+      <div style="display: flex; align-items: center; gap: 16px; padding: 18px 4px; border-bottom: 1px solid #D8D3EC;">
+        <span style="flex: 0 0 auto; min-width: 88px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 6px 12px;">{{ iv.kind | default('媒體受訪') }}</span>
+        <span style="flex: 1; min-width: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: {{ '#33324A' if iv.link else '#8E88B3' }};">{{ iv.title }}</span>
+        <span aria-hidden="true" style="flex: 0 0 auto; font-size: 14px; font-weight: 700; color: {{ '#625E92' if iv.link else '#8E88B3' }};">{{ '前往收聽 →' if iv.link else '待補' }}</span>
+      </div>
+      {% if iv.link %}</a>{% endif %}
+      {% endfor %}
+      {% else %}
+      {% for i in range(s.media.interviews_placeholder_count) %}
+      <div style="display: flex; align-items: center; gap: 16px; padding: 18px 4px; border-bottom: 1px solid #D8D3EC;">
+        <span style="flex: 0 0 auto; min-width: 88px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #5F5B8C; background: #FFFFFF; border: 1px solid #D8D3EC; border-radius: 999px; padding: 6px 12px;">{{ 'Podcast' if loop.first else '媒體受訪' }}</span>
+        <span style="flex: 1; min-width: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: #8E88B3;">{{ '（節目名稱／集數・待補）' if loop.first else '（媒體／主題・待補）' }}</span>
+        <span aria-hidden="true" style="flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #8E88B3;">待補</span>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
