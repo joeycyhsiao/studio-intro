@@ -44,9 +44,9 @@
   <a href="#method"><span class="dot"></span><span class="label">我的方法</span></a>
   <a href="#services"><span class="dot"></span><span class="label">合作方式</span></a>
   <a href="#work"><span class="dot"></span><span class="label">我做過的</span></a>
+  <a href="#voices"><span class="dot"></span><span class="label">推薦</span></a>
   <a href="#gallery"><span class="dot"></span><span class="label">現場側錄</span></a>
   <a href="#about"><span class="dot"></span><span class="label">關於我</span></a>
-  <a href="#voices"><span class="dot"></span><span class="label">推薦</span></a>
   <a href="#contact"><span class="dot"></span><span class="label">聯絡</span></a>
 </nav>
 
@@ -304,22 +304,54 @@
         <img src="assets/genz-journeymap.jpg" loading="lazy" alt="Z 世代社會公益體驗設計：Journey Map 旅程地圖模板" style="width: 100%; border-radius: 12px; display: block;">
       </div>
     </div>
+  </div>
+</section>
 
-    <div style="display: flex; flex-direction: column; gap: 12px; margin: 72px 0 28px;">
-      <h3 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); color: #33324A;">深度文章產出</h3>
-      <p style="margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">在設計與研究工作之外，我持續書寫深度文章系列，把專業觀點整理成系列論述。<br>目前有兩個系列連載中：</p>
+<!-- ⑥ 推薦 -->
+<section id="voices" data-screen-label="合作過的人怎麼說" style="background: #FFFFFF; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
+  <div style="max-width: 1240px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">跟我合作的人怎麼說？</p>
+    <h2 style="margin: 0 auto 56px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center;">客戶夥伴推薦語</h2>
+    <div ref="{{ tRef }}" style="display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px calc((100% - min(520px, 62%)) / 2) 20px; scrollbar-width: none;" onScroll="{{ onTScroll }}">
+      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到你們對社會共好的服務設計的投入。</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜跨國企業 - 產品設計師<br>（Z世代服務設計工作坊參與者）</figcaption>
+      </figure>
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br data-om-id="ebfa7d98:176">（悠識學院 Agentic AI 課程參與者）</figcaption>
+      </figure>
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">你把我們在初訪探索階段遇到的問題，講成了一套系統性的架構。</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜大型企業 - 專案 / 產品經理<br>（Webconf 2025 演講聽眾）</figcaption>
+      </figure>
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">團隊要在有限人力下做出有信度、效度的研究很苦惱。你們用不同角度分類 persona，給了我們新的啟發！</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜大型社創組織 - 專案專員<br>（Z世代服務設計工作坊參與者）</figcaption>
+      </figure>
+      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到你們對社會共好的服務設計的投入。</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜跨國企業 - 產品設計師<br>（Z世代服務設計工作坊參與者）</figcaption>
+      </figure>
+      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
+        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
+        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br>（悠識學院 Agentic AI 課程參與者）</figcaption>
+      </figure>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-      <a href="https://joeyintheloop.substack.com/p/ai-social-impact" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
-        <span style="align-self: flex-start; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; background-color: #F9C04B">專欄系列・連載中</span>
-        <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">《代理人 AI 與社會影響力》</span>
-        <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">前往閱讀 →</span>
-      </a>
-      <a href="https://joeyintheloop.substack.com/p/genz" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
-        <span style="align-self: flex-start; background: #F9C04B; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px;">專欄系列・連載中</span>
-        <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">《重構 Z 世代的公益參與體驗設計》</span>
-        <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">前往閱讀 →</span>
-      </a>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
+      <button type="button" aria-label="上一則推薦" onClick="{{ prevT }}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #B8C2C8; background: #FFFFFF; color: #5F5B8C; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #5F5B8C; color: #FFFFFF; border-color: #5F5B8C;">←</button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="4">
+          <button type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}" style="width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; cursor: pointer; background: {{ d.color }}; transition: background 0.2s;"></button>
+        </sc-for>
+      </div>
+      <button type="button" aria-label="下一則推薦" onClick="{{ nextT }}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #B8C2C8; background: #FFFFFF; color: #5F5B8C; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #5F5B8C; color: #FFFFFF; border-color: #5F5B8C;">→</button>
     </div>
   </div>
 </section>
@@ -467,54 +499,39 @@
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ⑥ 推薦 -->
-<section id="voices" data-screen-label="合作過的人怎麼說" style="background: #FFFFFF; padding: clamp(72px, 10vw, 130px) clamp(24px, 6vw, 80px);">
-  <div style="max-width: 1240px; margin: 0 auto;">
-    <p style="margin: 0 0 16px; font-size: 14px; letter-spacing: 0.2em; font-weight: 700; color: #625E92; text-align: center;">跟我合作的人怎麼說？</p>
-    <h2 style="margin: 0 auto 56px; max-width: 760px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.5; color: #33324A; text-align: center;">客戶夥伴推薦語</h2>
-    <div ref="{{ tRef }}" style="display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px calc((100% - min(520px, 62%)) / 2) 20px; scrollbar-width: none;" onScroll="{{ onTScroll }}">
-      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
-        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到你們對社會共好的服務設計的投入。</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜跨國企業 - 產品設計師<br>（Z世代服務設計工作坊參與者）</figcaption>
-      </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
-        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br data-om-id="ebfa7d98:176">（悠識學院 Agentic AI 課程參與者）</figcaption>
-      </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
-        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">你把我們在初訪探索階段遇到的問題，講成了一套系統性的架構。</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜大型企業 - 專案 / 產品經理<br>（Webconf 2025 演講聽眾）</figcaption>
-      </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
-        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">團隊要在有限人力下做出有信度、效度的研究很苦惱。你們用不同角度分類 persona，給了我們新的啟發！</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜大型社創組織 - 專案專員<br>（Z世代服務設計工作坊參與者）</figcaption>
-      </figure>
-      <figure style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
-        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">在台灣很少看到這樣關注社會議題和共融設計的團隊，從這個專案真的感受得到你們對社會共好的服務設計的投入。</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜跨國企業 - 產品設計師<br>（Z世代服務設計工作坊參與者）</figcaption>
-      </figure>
-      <figure aria-hidden="true" style="margin: 0; flex: 0 0 min(520px, 62%); box-sizing: border-box; scroll-snap-align: center; background: #F6F6F9; border-radius: 16px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px;">
-        <span aria-hidden="true" style="font-family: 'Noto Serif TC', serif; font-size: 52px; line-height: 0.55; color: #F9C04B; font-weight: 900;">“</span>
-        <blockquote style="margin: 0; font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif; font-size: clamp(15px, 1.6vw, 18px); line-height: 2; color: #33324A; flex: 1; text-wrap: pretty;">這是我上過所有 AI 課程裡，聽了最不焦慮、又最能實際上手的講題。</blockquote>
-        <figcaption style="font-size: 14px; color: #625E92; font-weight: 500;">— 匿名｜顧問公司 - UX 研究員<br>（悠識學院 Agentic AI 課程參與者）</figcaption>
-      </figure>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
-      <button type="button" aria-label="上一則推薦" onClick="{{ prevT }}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #B8C2C8; background: #FFFFFF; color: #5F5B8C; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #5F5B8C; color: #FFFFFF; border-color: #5F5B8C;">←</button>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="4">
-          <button type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}" style="width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; cursor: pointer; background: {{ d.color }}; transition: background 0.2s;"></button>
-        </sc-for>
+    <div style="margin-top: 72px;">
+      <h3 style="margin: 0 0 8px; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); color: #33324A;">媒體曝光</h3>
+      <p style="margin: 0 0 36px; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.9; color: #55536E; text-wrap: pretty;">除了專案工作，我也透過深度書寫與媒體受訪，持續分享 UX 與 AI 時代創新的實務觀點。</p>
+      <h4 style="margin: 0 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">深度文章</h4>
+      <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 20px;"></span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      <a href="https://joeyintheloop.substack.com/p/ai-social-impact" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
+        <span style="align-self: flex-start; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; background-color: #F9C04B">專欄系列・連載中</span>
+        <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">《代理人 AI 與社會影響力》</span>
+        <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">前往閱讀 →</span>
+      </a>
+      <a href="https://joeyintheloop.substack.com/p/genz" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;" style-hover="border-color: #7B77A8; text-decoration: none;">
+        <span style="align-self: flex-start; background: #F9C04B; color: #33324A; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px;">專欄系列・連載中</span>
+        <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #33324A;">《重構 Z 世代的公益參與體驗設計》</span>
+        <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #625E92;">前往閱讀 →</span>
+      </a>
       </div>
-      <button type="button" aria-label="下一則推薦" onClick="{{ nextT }}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #B8C2C8; background: #FFFFFF; color: #5F5B8C; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #5F5B8C; color: #FFFFFF; border-color: #5F5B8C;">→</button>
+      <!-- 公開受訪：受訪內容由蕭喬尹之後補上；新增一則＝複製一個 card；有連結時把 <div> 換成 <a href="..." target="_blank" rel="noopener">。 -->
+      <h4 style="margin: 44px 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">公開受訪</h4>
+      <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 20px;"></span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <div style="border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="align-self: flex-start; color: #625E92; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; border: 1px solid #D8D3EC;">媒體受訪</span>
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #A29BC6;">（受訪媒體／主題・待補）</span>
+          <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #A29BC6;">連結・待補</span>
+        </div>
+        <div style="border: 1px solid #E3E2EE; border-radius: 20px; padding: clamp(32px, 4vw, 44px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="align-self: flex-start; color: #625E92; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border-radius: 999px; padding: 5px 14px; border: 1px solid #D8D3EC;">媒體受訪</span>
+          <span style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: clamp(20px, 2vw, 24px); line-height: 1.6; color: #A29BC6;">（受訪媒體／主題・待補）</span>
+          <span style="margin-top: auto; font-size: 15px; font-weight: 700; color: #A29BC6;">連結・待補</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
