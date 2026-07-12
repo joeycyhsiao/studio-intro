@@ -131,6 +131,11 @@ def build():
     DIST.mkdir(exist_ok=True)
     (DIST / "index.html").write_text(html, encoding="utf-8")
 
+    # custom domain for GitHub Pages
+    domain = site.get("custom_domain")
+    if domain:
+        (DIST / "CNAME").write_text(domain.strip() + "\n", encoding="utf-8")
+
     # assets: brand assets + gallery images
     dist_assets = DIST / "assets"
     if dist_assets.exists():

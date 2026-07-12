@@ -8,6 +8,8 @@ meta:
 
 hero_theme: light          # light | purple
 
+custom_domain: joeyhsiao.com   # 產生 dist/CNAME，讓 GitHub Pages 綁定自訂網域
+
 brand:
   colors:
     purple: "#5F5B8C"
