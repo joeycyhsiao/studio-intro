@@ -5,15 +5,16 @@
 ## 快速開始
 
 ```bash
-pip install -r requirements.txt        # Jinja2 / PyYAML / Markdown
-pip install -r requirements-dev.txt    # 選用：--watch / --serve 需要
+python3 -m pip install -r requirements.txt      # Jinja2 / PyYAML / Markdown
+python3 -m pip install -r requirements-dev.txt  # 選用：--watch / --serve 需要
+# 注意：本機請一律用 `python3` 與 `python3 -m pip`，不要用裸的 pip/python（/usr/local/bin/pip 已壞）
 
-python build.py                        # 產出 dist/
-python build.py --serve                # 產出並在 http://localhost:8899 預覽
-python build.py --serve --watch        # 邊改邊看（存檔自動重建）
+python3 build.py                       # 產出 dist/
+python3 build.py --serve               # 產出並在 http://localhost:8899 預覽
+python3 build.py --serve --watch       # 邊改邊看（存檔自動重建）
 ```
 
-部署：`python build.py` 後把 `dist/` 整個上傳到任何靜態空間即可（`dist/` 已被 git 忽略）。
+部署：`python3 build.py` 後把 `dist/` 整個上傳到任何靜態空間即可（`dist/` 已被 git 忽略）。
 
 ## 內容在哪裡改
 
