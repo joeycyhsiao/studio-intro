@@ -185,7 +185,13 @@ def watch_loop():
 def serve(port: int):
     handler = lambda *a, **k: http.server.SimpleHTTPRequestHandler(
         *a, directory=str(DIST), **k)
-    httpd = socketserver.ThreadingTCPServer(("", port), handler)
+    socketserver.ThreadingTCPServer.allow_reuse_address = True
+    try:
+        httpd = socketserver.ThreadingTCPServer(("", port), handler)
+    except OSError as e:
+        print(f"! port {port} is already in use ({e}).\n"
+              f"  Free it, or pick another port:  python3 build.py --serve --port {port + 1}")
+        return
     httpd.daemon_threads = True
     print(f"serving http://localhost:{port}/  (dist/)")
     httpd.serve_forever()
