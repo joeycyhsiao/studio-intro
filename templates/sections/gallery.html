@@ -14,7 +14,7 @@
       {% for g in col.gallery %}
       <figure style="flex: 0 0 auto; width: clamp(260px, 34vw, 380px); margin: 0 20px 0 0; display: flex; flex-direction: column; gap: 12px;"{% if pass == 1 %} aria-hidden="true"{% endif %}>
         <div style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #EDEBF4, #DAD6EC);">
-          <img src="assets/gallery/{{ g.file }}" alt="{{ g.caption }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <img src="assets/gallery/{{ g.file }}" alt="{{ g.caption }}" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
         {% if g.caption %}
         <figcaption style="font-size: 14px; line-height: 1.6; color: #625E92; text-wrap: pretty;">{{ g.caption }}</figcaption>
