@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;700;900&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v={{ ver.css }}">
 </head>
 <body>
 
@@ -32,6 +32,6 @@
 {% include "sections/" ~ sid ~ ".html" %}
 {% endfor %}
 
-<script src="main.js" defer></script>
+<script src="main.js?v={{ ver.js }}" defer></script>
 </body>
 </html>

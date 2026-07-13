@@ -16,6 +16,7 @@ import http.server
 import socketserver
 import threading
 import time
+import hashlib
 import shutil
 from pathlib import Path
 
@@ -121,11 +122,18 @@ def build():
         lstrip_blocks=True,
     )
     env.filters["markdown"] = lambda v: md.markdown(v) if v else ""
+
+    def _ver(name):
+        p = STATIC / name
+        return hashlib.md5(p.read_bytes()).hexdigest()[:8] if p.exists() else ""
+    ver = {"css": _ver("styles.css"), "js": _ver("main.js")}
+
     html = env.get_template("base.html").render(
         site=site,
         s=sections,
         col=collections,
         hero=hero_palette(site.get("hero_theme", "light")),
+        ver=ver,
     )
 
     DIST.mkdir(exist_ok=True)
