@@ -22,7 +22,12 @@ details.reveal[open] .rvchev { transform: rotate(180deg); }
 @keyframes gallery-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .gallery-track { animation: gallery-scroll var(--gallery-seconds, 40s) linear infinite; }
 .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) { .gallery-track { animation: none; } .gallery-marquee { overflow-x: auto; } }
+.voices-track { animation: gallery-scroll var(--voices-seconds, 60s) linear infinite; }
+.voices-marquee:hover .voices-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track, .voices-track { animation: none; }
+  .gallery-marquee, .voices-marquee { overflow-x: auto; }
+}
 @media (max-width: 768px) { .brk { display: none; } }
 @media (max-width: 1024px) {
   .vnav { display: none; }
