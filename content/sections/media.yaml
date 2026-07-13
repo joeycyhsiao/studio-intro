@@ -4,6 +4,7 @@ lead_lines:
   - 除了專案工作，我也透過深度書寫與媒體受訪，
   - 持續分享 UX 與 AI 時代創新的實務觀點。
 articles_heading: 個人專欄文章
+articles_more: {label: 更多研究文章與報告, href: "https://in-clues-ux.com/post-archive/"}
 interviews_heading: 公開受訪紀錄
 # 當 collections/interviews/ 沒有項目時，顯示幾列「待補」佔位
 interviews_placeholder_count: 3

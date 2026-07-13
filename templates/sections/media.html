@@ -17,6 +17,10 @@
       {% endfor %}
     </div>
 
+    {% if s.media.articles_more %}
+    <p style="margin: 18px 0 0; text-align: right;"><a href="{{ s.media.articles_more.href }}" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700; color: #625E92;">{{ s.media.articles_more.label }} →</a></p>
+    {% endif %}
+
     <h4 style="margin: 48px 0 6px; font-size: 15px; letter-spacing: 0.16em; font-weight: 700; color: #625E92;">{{ s.media.interviews_heading }}</h4>
     <span aria-hidden="true" style="display: block; width: 32px; height: 4px; border-radius: 2px; background: #F9C04B; margin-bottom: 12px;"></span>
     <div style="border-top: 1px solid #D8D3EC;">
