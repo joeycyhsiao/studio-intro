@@ -6,5 +6,4 @@ lead_lines:
 articles_heading: 個人專欄文章
 articles_more: {label: 更多研究文章與報告, href: "https://in-clues-ux.com/post-archive/"}
 interviews_heading: 公開受訪紀錄
-# 當 collections/interviews/ 沒有項目時，顯示幾列「待補」佔位
-interviews_placeholder_count: 3
+# 受訪項目放在 collections/interviews/（見 _example.md）；沒有項目時整塊自動隱藏

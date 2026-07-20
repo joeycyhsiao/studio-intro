@@ -64,6 +64,8 @@ def load_collection_md(name: str):
     if not d.exists():
         return items
     for p in sorted(d.glob("*.md")):
+        if p.name.startswith("_"):  # _example.md 等範本檔不進網站
+            continue
         meta, body = parse_frontmatter(p.read_text(encoding="utf-8"))
         meta["body"] = body
         meta["body_html"] = md.markdown(body) if body else ""
@@ -199,11 +201,19 @@ def serve(port: int):
     handler = lambda *a, **k: http.server.SimpleHTTPRequestHandler(
         *a, directory=str(DIST), **k)
     socketserver.ThreadingTCPServer.allow_reuse_address = True
-    try:
-        httpd = socketserver.ThreadingTCPServer(("", port), handler)
-    except OSError as e:
-        print(f"! port {port} is already in use ({e}).\n"
-              f"  Free it, or pick another port:  python3 build.py --serve --port {port + 1}")
+    httpd = None
+    for p in range(port, port + 20):  # port 被佔用就往上找下一個可用的
+        try:
+            httpd = socketserver.ThreadingTCPServer(("", p), handler)
+            if p != port:
+                print(f"! port {port} is in use → using {p} instead")
+            port = p
+            break
+        except OSError:
+            continue
+    if httpd is None:
+        print(f"! ports {port}–{port + 19} are all in use; "
+              f"try  python3 build.py --serve --port <port>")
         return
     httpd.daemon_threads = True
     print(f"serving http://localhost:{port}/  (dist/)")
